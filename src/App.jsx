@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
+import Form from "./components/Form"
 import BackImg from './assets/img/backg-img.png'
 
 const Container = styled.div`
@@ -27,14 +28,16 @@ const Heading = styled.h1`
     margin: 10px auto 0 auto;
   }
 `
-
 const Image = styled.img`
   max-width: 400px;
   width: 80%;
   margin: 100px auto 0 auto;
   display: block;
-  margin: 80px 0 50px 0;
   font-size: 34px;
+
+  @media(max-width: 992px){
+    margin: 50px auto 50px auto;
+  }
 `
 
 function App() {
@@ -44,6 +47,8 @@ function App() {
       <Image src={BackImg} alt='logos de criptomonedas' />
       <div>
         <Heading>Cotiza Criptomonedas al Instante</Heading>
+
+        <Form/>
       </div>
     </Container>
   )
