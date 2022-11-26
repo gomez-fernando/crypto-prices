@@ -1,4 +1,4 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
 import styled from '@emotion/styled'
 import useSelectCurrencies from '../hooks/useSelectCurrencies'
 import { currencies } from '../data/currencies'
@@ -23,15 +23,32 @@ const InputSubmit = styled.input`
 `
 
 const Form = () => {
-  
+  const [cryptos, setCryptos] = useState([])
 
-  const [SelectCurrencies] = useSelectCurrencies('Elige tu Moneda', currencies)
-  // const [SelectCryptoCurrencies] = useSelectCurrencies('Elige tu Criptomoneda')
+  const [currency, SelectCurrencies] = useSelectCurrencies('Elige tu Moneda', currencies)
+
+  useEffect(() => {
+    const API = async () => {
+      const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD`;
+      const response = await fetch(url);
+      const result = await response.json();
+
+      const cryptos = result.Data.map(elem => {
+        const obj = {
+          id: elem.CoinInfo.Name,
+          name: elem.CoinInfo.FullName
+        }
+        return obj;
+      })
+      setCryptos(cryptos)
+    }
+    API();
+  }, [])
 
   return (
     <form>
       <SelectCurrencies/>
-      {/* <SelectCryptoCurrencies/> */}
+      {currency}
       
       <InputSubmit type="submit" value="Cotizar" />
     </form>
