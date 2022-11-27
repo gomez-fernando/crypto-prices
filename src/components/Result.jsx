@@ -15,6 +15,7 @@ const Container = styled.div`
 `
 const Price = styled.p`
   font-size: 24px;
+  margin-top: 10px;
   span{
     font-weight: 700;
   }
