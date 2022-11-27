@@ -7,11 +7,19 @@ const Container = styled.div`
   align-items: center;
   gap: 1rem;
   margin-top: 30px;
+  flex-direction: column;
+
+  @media (max-width: 991px) {
+    font-size: 24px;
+  }
 `
 const Price = styled.p`
   font-size: 24px;
   span{
     font-weight: 700;
+  }
+  @media (max-width: 700px) {
+    font-size: 20px;
   }
 `
 const Text = styled.p`
@@ -19,10 +27,16 @@ const Text = styled.p`
   span{
     font-weight: 700;
   }
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `
 const IMG = styled.img`
   display: block;
-  width: 120px;
+  width: 80px;
+  @media (max-width: 700px) {
+    width: 60px;
+  }
 `
 
 const Result = ({ result }) => {

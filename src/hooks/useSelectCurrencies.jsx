@@ -8,6 +8,9 @@ const Label = styled.label`
   font-size: 24px;
   font-weight: 700;
   margin: 15px 0;
+  @media (max-width: 700px) {
+    font-size: 18px;
+  }
 `
 
 const Select = styled.select`
@@ -15,6 +18,9 @@ const Select = styled.select`
   font-size: 18px;
   padding: 14px;
   border-radius: 10px;
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `
 
 const useSelectCurrencies = (label, currencies) => {

@@ -21,6 +21,10 @@ const InputSubmit = styled.input`
     background-color: #7A7DFE;
     cursor: pointer;
   }
+
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `
 
 const Form = ({setCurrencies}) => {
