@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import Form from "./components/Form"
+import Result from './components/Result'
 import BackImg from './assets/img/backg-img.png'
 
 const Container = styled.div`
@@ -68,6 +69,10 @@ function App() {
         <Form
           setCurrencies={setCurrencies}
         />
+
+        {result.PRICE &&
+          <Result result={result}/>
+        }
       </div>
     </Container>
   )
